@@ -1,0 +1,6 @@
+{
+  "layout": "base.njk",
+  "type": "Project",
+  "tags": "projects",
+  "class": "projects"
+}

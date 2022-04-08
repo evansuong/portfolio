@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="assets/styles/styles.css" tyle="text/css"> 
+  <title>Evan Suong</title>
+  
+  <link rel="stylesheet" href="https://use.typekit.net/zov4iqv.css">
+</head>
+<body>
+  <div id="background">
+    {% for item in collections.jobs %}
+      <div class="page-background {{ item.data.class }} hidden" style="background-image: url('{{ item.data.backgroundPatternSrc }}');"></div>
+    {% endfor %}
+    {% for item in collections.projects %}
+      <div class="page-background {{ item.data.class }} hidden" style="background-image: url('{{ item.data.backgroundPatternSrc }}');"></div>
+    {% endfor %}
+    {% for item in collections.home %}
+      <div class="page-background {{ item.data.class }} hidden" style="background-image: url('{{ item.data.backgroundPatternSrc }}');"></div>
+    {% endfor %}
+  </div>
+  
+  <header id="page-title">
+    <nav class="container-nav-list">
+      {% for item in collections.projects %}
+        {% include 'nav-item.njk' %}
+      {% endfor %}
+    </nav>
+    <div class="container-main">
+
+      <div id="container-main-content">
+
+        <div id="opening-text" class="container-title-text">
+          {% for item in collections.jobs %}
+            {% include 'title-text.njk' %}
+          {% endfor %}
+          {% for item in collections.projects %}
+            {% include 'title-text.njk' %}
+          {% endfor %}
+          {% for item in collections.home %}
+            {% include 'title-text.njk' %}
+          {% endfor %}
+        </div>
+        <div id="container-card">
+          {% for item in collections.projects %}
+            {% include 'item-card.njk' %}
+          {% endfor %}
+          {% for item in collections.jobs %}
+            {% include 'item-card.njk' %}
+          {% endfor %}
+          {% include 'home-card.njk' %}
+        </div>
+        <div id="closing-text" class="container-title-text">
+
+          {% for item in collections.jobs %}
+            {% include 'title-text-closing.njk' %}
+          {% endfor %}
+          {% for item in collections.projects %}
+            {% include 'title-text-closing.njk' %}
+          {% endfor %}
+          {% for item in collections.home %}
+            {% include 'title-text-closing.njk' %}
+          {% endfor %}
+
+        </div>
+
+      </div>
+
+      <aside id="container-main-img">
+        {% for item in collections.jobs %}
+          <img src="{{ item.data.mainImageSrc }}" alt="Image of {{ title }}" class="hidden {{ item.data.class }}"/>
+        {% endfor %}
+        {% for item in collections.projects %}
+          <img src="{{ item.data.mainImageSrc }}" alt="Image of {{ title }}" class="hidden {{ item.data.class }}"/>
+        {% endfor %}
+        {% for item in collections.home %}
+          <img src="{{ item.data.mainImageSrc }}" alt="Image of {{ title }}" class="hidden home"/>
+        {% endfor %}
+      </aside>
+
+    </div>
+    <nav class="container-nav-list">
+      {% for item in collections.jobs %}
+        {% include 'nav-item.njk' %}
+      {% endfor %}
+    </nav>
+  </header>
+  <main id="page-main">
+
+  </main>
+  <footer>
+
+  </footer>
+
+<script>
+  function init() {
+
+    // grab url and set page
+    let url = window.location.href;
+    if (url.includes('#')) {
+      navigate(url.split('#')[1]);
+    } else {
+      navigate('home');
+    }
+
+    // add button event listener
+    let navBtns = [...document.querySelectorAll('.nav-btn')];
+    navBtns.map(btn => {
+      btn.addEventListener('mouseover', e => navigate(e.target.getAttribute('data-page')));
+    })
+  }
+
+  function navigate(pagename) {
+    console.log("page initialized to open page: " + pagename);
+  
+    // update main card
+    let pageElements = [...document.querySelectorAll('.' + pagename)];
+    let activeElements = [...document.querySelectorAll('.active')];
+
+    console.log('hiding the following elements');
+    activeElements.map(element => { 
+      console.log(element)
+      element.classList.remove('active'); 
+      element.classList.add('hidden');
+    });
+
+    console.log('displaying the following elements: ');
+    pageElements.map(element => {
+      console.log(element)
+      element.classList.remove('hidden');
+      element.classList.add('active');
+    })
+
+    // update title text
+
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    init();
+  })
+
+
+  {# TODO: when the user reaches the top then display the nav items #}
+</script>
+</body>
+</html>

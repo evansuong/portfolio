@@ -1,0 +1,140 @@
+
+
+/* general styles  */
+:root {
+  --color1: #FFFF00;
+  --color2: #00FFFF;
+  --color3: #FF00FF;
+  --colorBkg: #020202;
+  --colorTxt: #FFFFFF;
+  --colorNavBkg: #020202;
+  --colorNavTxt: #FFFFFF;
+  --colorNavBorder: #FFFFFF;
+
+  /* --color1: red;
+  --color2: blue;
+  --color3: green; */
+}
+
+* {
+  font-family: Montserrat;
+}
+
+h1 {
+  margin-block: 0;
+  margin: 0;
+}
+
+
+
+
+
+
+
+
+/* stateful styles */
+.hidden {
+  opacity: 0;
+}
+
+.visible {
+  opacity: 1; 
+}
+
+
+
+
+
+/* large container styles */
+body {
+  margin: 0;
+}
+
+.page-background {
+  padding: 0;
+  background-repeat: repeat;
+  background-attachment: fixed;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  z-index: -9999;
+}
+
+header {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+}
+
+.container-main {
+  display: grid;
+  grid-template-rows: 50% 50%;
+  height: 100vh;
+}
+
+#container-main-content {
+  display: grid;
+  grid-template-rows: auto auto auto;
+  grid-auto-rows: minmax(min-content, max-content);
+
+}
+
+#container-card {
+  position: relative;
+  width: 100%;
+  grid-row: 2;
+  height: 33vh;
+}
+
+#container-card > section {
+  position: absolute;
+}
+
+.container-title-text {
+  display: flex;
+  position: relative;
+  font-size: 10px;
+}
+
+#opening-text {
+  grid-row: 1;
+}
+
+#closing-text {
+  grid-row: 3;
+}
+
+#opening-text > h1 {
+  position: absolute;
+  bottom: 7.5px;
+  left: 0;
+}
+
+#closing-text > h1 {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+#container-main-img {
+  height: 100%;
+  position: relative;
+}
+
+#container-main-img > img {
+  width: 100%; /* or any custom size */
+  height: 100%; 
+  object-fit: contain;
+  position: absolute;
+
+}
+
+
+
+
+/* nav list and items */
+.container-nav-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 50px;
+}
