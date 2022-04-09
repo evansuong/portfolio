@@ -12,17 +12,17 @@
 <body>
   <div id="background">
     
-      <div class="page-background servicenow hidden" style="background-image: url('assets/images/icon-servicenow.png');"></div>
+      <div class="page-background servicenow hidden page-item" style="background-image: url('assets/images/icon-servicenow.png');"></div>
     
-      <div class="page-background tutor hidden" style="background-image: url('assets/images/icon-ucsd.png');"></div>
-    
-    
-      <div class="page-background muse hidden" style="background-image: url('assets/images/icon-muse.png');"></div>
-    
-      <div class="page-background contests hidden" style="background-image: url('assets/images/icon-spotify.png');"></div>
+      <div class="page-background tutor hidden page-item" style="background-image: url('assets/images/icon-ucsd.png');"></div>
     
     
-      <div class="page-background home hidden" style="background-image: url('assets/images/pattern-bkg.svg');"></div>
+      <div class="page-background muse hidden page-item" style="background-image: url('assets/images/icon-muse.png');"></div>
+    
+      <div class="page-background contests hidden page-item" style="background-image: url('assets/images/icon-spotify.png');"></div>
+    
+    
+      <div class="page-background home hidden page-item" style="background-image: url('assets/images/pattern-bkg.svg');"></div>
     
   </div>
   
@@ -70,27 +70,17 @@
 
         <div id="opening-text" class="container-title-text">
           
-            <h1 id="title-text" class="hidden servicenow">
-  &lt;ServiceNow&gt;
-</h1>
+            <h1 data-title="<ServiceNow >" class="title-text hidden servicenow"[](../../../../../../../assets/images/home.png)></h1>
           
-            <h1 id="title-text" class="hidden tutor">
-  &lt;UCSD CSE Tutor&gt;
-</h1>
+            <h1 data-title="<UCSD CSE Tutor >" class="title-text hidden tutor"[](../../../../../../../assets/images/home.png)></h1>
           
           
-            <h1 id="title-text" class="hidden muse">
-  &lt;Muse&gt;
-</h1>
+            <h1 data-title="<Muse >" class="title-text hidden muse"[](../../../../../../../assets/images/home.png)></h1>
           
-            <h1 id="title-text" class="hidden contests">
-  &lt;Spotify Contests&gt;
-</h1>
+            <h1 data-title="<Spotify Contests >" class="title-text hidden contests"[](../../../../../../../assets/images/home.png)></h1>
           
           
-            <h1 id="title-text" class="hidden home">
-  &lt;web-developer&gt;
-</h1>
+            <h1 data-title="<web-developer >" class="title-text hidden home"[](../../../../../../../assets/images/home.png)></h1>
           
         </div>
         <div id="container-card">
@@ -105,7 +95,6 @@
   <p class="card-description">
     Muse was a startup that grew out of a class project to provide a platform where music listeners could explore new music and meet new people through an analysis of their music taste. Throughout the duration of the project, we were tasked with both designing a brand and creating the software for the mobile application
   </p>
-  <a class="nav-btn" data-page="home"><< Back to my face</a>
 </section>
 <style>
   section.page-item {
@@ -131,7 +120,6 @@
   <p class="card-description">
     Spotify Contests is a case study in which a group of Cognitive Science students and myself worked to redesign the Spotify platform in order to include a remix contest feature. The design process involved multiple rounds of user testing, prototyping, critiquing, and user research.
   </p>
-  <a class="nav-btn" data-page="home"><< Back to my face</a>
 </section>
 <style>
   section.page-item {
@@ -158,7 +146,6 @@
   <p class="card-description">
     I worked here it was nice
   </p>
-  <a class="nav-btn" data-page="home"><< Back to my face</a>
 </section>
 <style>
   section.page-item {
@@ -184,7 +171,6 @@
   <p class="card-description">
     I also worked here, it was nice
   </p>
-  <a class="nav-btn" data-page="home"><< Back to my face</a>
 </section>
 <style>
   section.page-item {
@@ -202,12 +188,20 @@
           
           
 <style>
-  #home-img {
+  #home {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
-    height: auto;
+    background-color: transparent;
+  }
+
+  #home-img {
+    height: inherit;
   }
 </style>
-<section id="home" class="hidden home">
+<section id="home" class="hidden home page-item">
   <img id="home-img" src="assets/images/home.png" alt=""/>
 </section> 
 
@@ -215,27 +209,17 @@
         <div id="closing-text" class="container-title-text">
 
           
-            <h1 class="hidden servicenow">
-  &lt;/ServiceNow&gt;
-</h1>
+            <h1 data-title="</ServiceNow >" class="hidden servicenow title-text-closing"></h1>
           
-            <h1 class="hidden tutor">
-  &lt;/UCSD CSE Tutor&gt;
-</h1>
+            <h1 data-title="</UCSD CSE Tutor >" class="hidden tutor title-text-closing"></h1>
           
           
-            <h1 class="hidden muse">
-  &lt;/Muse&gt;
-</h1>
+            <h1 data-title="</Muse >" class="hidden muse title-text-closing"></h1>
           
-            <h1 class="hidden contests">
-  &lt;/Spotify Contests&gt;
-</h1>
+            <h1 data-title="</Spotify Contests >" class="hidden contests title-text-closing"></h1>
           
           
-            <h1 class="hidden home">
-  &lt;/web-developer&gt;
-</h1>
+            <h1 data-title="</web-developer >" class="hidden home title-text-closing"></h1>
           
 
         </div>
@@ -244,17 +228,17 @@
 
       <aside id="container-main-img">
         
-          <img src="assets/images/preview-servicenow.svg" alt="Image of Spotify Contests" class="hidden servicenow"/>
+          <img src="assets/images/preview-servicenow.svg" alt="Image of Spotify Contests" class="hidden servicenow page-item"/>
         
-          <img src="assets/images/preview-ucsd.jpg" alt="Image of Spotify Contests" class="hidden tutor"/>
-        
-        
-          <img src="assets/images/preview-muse.png" alt="Image of Spotify Contests" class="hidden muse"/>
-        
-          <img src="assets/images/preview-spotify.png" alt="Image of Spotify Contests" class="hidden contests"/>
+          <img src="assets/images/preview-ucsd.jpg" alt="Image of Spotify Contests" class="hidden tutor page-item"/>
         
         
-          <img src="assets/images/me.png" alt="Image of Spotify Contests" class="hidden home"/>
+          <img src="assets/images/preview-muse.png" alt="Image of Spotify Contests" class="hidden muse page-item"/>
+        
+          <img src="assets/images/preview-spotify.png" alt="Image of Spotify Contests" class="hidden contests page-item"/>
+        
+        
+          <img src="assets/images/me.png" alt="Image of Spotify Contests" class="hidden home page-item"/>
         
       </aside>
 
@@ -319,32 +303,61 @@
     let navBtns = [...document.querySelectorAll('.nav-btn')];
     navBtns.map(btn => {
       btn.addEventListener('mouseover', e => navigate(e.target.getAttribute('data-page')));
+      btn.addEventListener('mouseleave', e => navigate('home'));
     })
+
+    // grab title text and turn it into a bunch of p tags
+    let titles = [...document.querySelectorAll('.title-text'), ...document.querySelectorAll('.title-text-closing')];
+    titles.map(title => {
+      let text = title.getAttribute('data-title').split("").reverse();
+      let i = text.length;
+      while(i--) {
+        let p = document.createElement('p');
+        p.innerText = text[i];
+        title.appendChild(p);
+      }
+    })
+
   }
 
-  function navigate(pagename) {
-    console.log("page initialized to open page: " + pagename);
-  
+  async function navigate(pagename) {
+    function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+    
     // update main card
     let pageElements = [...document.querySelectorAll('.' + pagename)];
     let activeElements = [...document.querySelectorAll('.active')];
 
-    console.log('hiding the following elements');
+    /*console.log('hiding the following elements');
     activeElements.map(element => { 
-      console.log(element)
+      
       element.classList.remove('active'); 
       element.classList.add('hidden');
-    });
+    });*/
 
     console.log('displaying the following elements: ');
     pageElements.map(element => {
-      console.log(element)
+      
       element.classList.remove('hidden');
       element.classList.add('active');
     })
 
     // update title text
-
+    let deleteTitleClosing = [...document.querySelector('.title-text-closing.'+pagename).children].reverse();
+    for (letter of deleteTitleClosing) {
+      console.log(letter)
+      await sleep(40);
+      letter.classList.remove('visible');
+      letter.classList.add('hidden');
+    }
+    let deleteTitle = [...document.querySelector('.title-text.'+pagename).children].reverse();
+    for (letter of deleteTitle) {
+      console.log(letter)
+      await sleep(40);
+      letter.classList.remove('visible');
+      letter.classList.add('hidden');
+    }    
   }
 
   document.addEventListener('DOMContentLoaded', function() {

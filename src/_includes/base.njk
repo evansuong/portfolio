@@ -12,13 +12,13 @@
 <body>
   <div id="background">
     {% for item in collections.jobs %}
-      <div class="page-background {{ item.data.class }} hidden" style="background-image: url('{{ item.data.backgroundPatternSrc }}');"></div>
+      <div class="page-background {{ item.data.class }} hidden page-item" style="background-image: url('{{ item.data.backgroundPatternSrc }}');"></div>
     {% endfor %}
     {% for item in collections.projects %}
-      <div class="page-background {{ item.data.class }} hidden" style="background-image: url('{{ item.data.backgroundPatternSrc }}');"></div>
+      <div class="page-background {{ item.data.class }} hidden page-item" style="background-image: url('{{ item.data.backgroundPatternSrc }}');"></div>
     {% endfor %}
     {% for item in collections.home %}
-      <div class="page-background {{ item.data.class }} hidden" style="background-image: url('{{ item.data.backgroundPatternSrc }}');"></div>
+      <div class="page-background {{ item.data.class }} hidden page-item" style="background-image: url('{{ item.data.backgroundPatternSrc }}');"></div>
     {% endfor %}
   </div>
   
@@ -70,13 +70,13 @@
 
       <aside id="container-main-img">
         {% for item in collections.jobs %}
-          <img src="{{ item.data.mainImageSrc }}" alt="Image of {{ title }}" class="hidden {{ item.data.class }}"/>
+          <img src="{{ item.data.mainImageSrc }}" alt="Image of {{ title }}" class="hidden {{ item.data.class }} page-item"/>
         {% endfor %}
         {% for item in collections.projects %}
-          <img src="{{ item.data.mainImageSrc }}" alt="Image of {{ title }}" class="hidden {{ item.data.class }}"/>
+          <img src="{{ item.data.mainImageSrc }}" alt="Image of {{ title }}" class="hidden {{ item.data.class }} page-item"/>
         {% endfor %}
         {% for item in collections.home %}
-          <img src="{{ item.data.mainImageSrc }}" alt="Image of {{ title }}" class="hidden home"/>
+          <img src="{{ item.data.mainImageSrc }}" alt="Image of {{ title }}" class="hidden home page-item"/>
         {% endfor %}
       </aside>
 
@@ -109,32 +109,61 @@
     let navBtns = [...document.querySelectorAll('.nav-btn')];
     navBtns.map(btn => {
       btn.addEventListener('mouseover', e => navigate(e.target.getAttribute('data-page')));
+      btn.addEventListener('mouseleave', e => navigate('home'));
     })
+
+    // grab title text and turn it into a bunch of p tags
+    let titles = [...document.querySelectorAll('.title-text'), ...document.querySelectorAll('.title-text-closing')];
+    titles.map(title => {
+      let text = title.getAttribute('data-title').split("").reverse();
+      let i = text.length;
+      while(i--) {
+        let p = document.createElement('p');
+        p.innerText = text[i];
+        title.appendChild(p);
+      }
+    })
+
   }
 
-  function navigate(pagename) {
-    console.log("page initialized to open page: " + pagename);
-  
+  async function navigate(pagename) {
+    function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+    
     // update main card
     let pageElements = [...document.querySelectorAll('.' + pagename)];
     let activeElements = [...document.querySelectorAll('.active')];
 
-    console.log('hiding the following elements');
+    /*console.log('hiding the following elements');
     activeElements.map(element => { 
-      console.log(element)
+      {# console.log(element) #}
       element.classList.remove('active'); 
       element.classList.add('hidden');
-    });
+    });*/
 
     console.log('displaying the following elements: ');
     pageElements.map(element => {
-      console.log(element)
+      {# console.log(element) #}
       element.classList.remove('hidden');
       element.classList.add('active');
     })
 
     // update title text
-
+    let deleteTitleClosing = [...document.querySelector('.title-text-closing.'+pagename).children].reverse();
+    for (letter of deleteTitleClosing) {
+      console.log(letter)
+      await sleep(40);
+      letter.classList.remove('visible');
+      letter.classList.add('hidden');
+    }
+    let deleteTitle = [...document.querySelector('.title-text.'+pagename).children].reverse();
+    for (letter of deleteTitle) {
+      console.log(letter)
+      await sleep(40);
+      letter.classList.remove('visible');
+      letter.classList.add('hidden');
+    }    
   }
 
   document.addEventListener('DOMContentLoaded', function() {
