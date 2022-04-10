@@ -86,7 +86,7 @@ h1 {
   opacity: 0;
 }
 
-.visible {
+.active {
   opacity: 1; 
 }
 
@@ -96,11 +96,11 @@ h1 {
   animation-direction: normal;
 }
 
-.title-text > p.visible, .title-text-closing > p.hidden {
+.title-text > p.active, .title-text-closing > p.active {
   animation-name: typeText;
   animation-duration: .05s;
   animation-direction: normal;
-  opacity: 0;
+  opacity: 1;
 }
 
 

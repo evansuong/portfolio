@@ -70,17 +70,17 @@
 
         <div id="opening-text" class="container-title-text">
           
-            <h1 data-title="<ServiceNow >" class="title-text hidden servicenow"[](../../../../../../../assets/images/home.png)></h1>
+            <h1 data-title="<ServiceNow >" data-class="servicenow" class="title-text servicenow"></h1>
           
-            <h1 data-title="<UCSD CSE Tutor >" class="title-text hidden tutor"[](../../../../../../../assets/images/home.png)></h1>
-          
-          
-            <h1 data-title="<Muse >" class="title-text hidden muse"[](../../../../../../../assets/images/home.png)></h1>
-          
-            <h1 data-title="<Spotify Contests >" class="title-text hidden contests"[](../../../../../../../assets/images/home.png)></h1>
+            <h1 data-title="<UCSD CSE Tutor >" data-class="tutor" class="title-text tutor"></h1>
           
           
-            <h1 data-title="<web-developer >" class="title-text hidden home"[](../../../../../../../assets/images/home.png)></h1>
+            <h1 data-title="<Muse >" data-class="muse" class="title-text muse"></h1>
+          
+            <h1 data-title="<Spotify Contests >" data-class="contests" class="title-text contests"></h1>
+          
+          
+            <h1 data-title="<web-developer >" data-class="home" class="title-text home"></h1>
           
         </div>
         <div id="container-card">
@@ -209,17 +209,17 @@
         <div id="closing-text" class="container-title-text">
 
           
-            <h1 data-title="</ServiceNow >" class="hidden servicenow title-text-closing"></h1>
+            <h1 data-title="</ServiceNow >" data-class="servicenow" class="servicenow title-text"></h1>
           
-            <h1 data-title="</UCSD CSE Tutor >" class="hidden tutor title-text-closing"></h1>
-          
-          
-            <h1 data-title="</Muse >" class="hidden muse title-text-closing"></h1>
-          
-            <h1 data-title="</Spotify Contests >" class="hidden contests title-text-closing"></h1>
+            <h1 data-title="</UCSD CSE Tutor >" data-class="tutor" class="tutor title-text"></h1>
           
           
-            <h1 data-title="</web-developer >" class="hidden home title-text-closing"></h1>
+            <h1 data-title="</Muse >" data-class="muse" class="muse title-text"></h1>
+          
+            <h1 data-title="</Spotify Contests >" data-class="contests" class="contests title-text"></h1>
+          
+          
+            <h1 data-title="</web-developer >" data-class="home" class="home title-text"></h1>
           
 
         </div>
@@ -293,11 +293,9 @@
 
     // grab url and set page
     let url = window.location.href;
-    if (url.includes('#')) {
-      navigate(url.split('#')[1]);
-    } else {
-      navigate('home');
-    }
+    let pagename = url.split('#')[1];
+    if (!url.includes('#')) pagename = 'home';
+
 
     // add button event listener
     let navBtns = [...document.querySelectorAll('.nav-btn')];
@@ -313,56 +311,74 @@
       let i = text.length;
       while(i--) {
         let p = document.createElement('p');
+        p.classList.add(title.getAttribute('data-class'));
+        p.classList.add('hidden');
         p.innerText = text[i];
         title.appendChild(p);
       }
     })
 
+    navigate(pagename);
   }
 
   async function navigate(pagename) {
-    function sleep(ms) {
-        return new Promise(resolve => setTimeout(resolve, ms));
-    }
+
+    window.titleText = pagename;
     
     // update main card
-    let pageElements = [...document.querySelectorAll('.' + pagename)];
-    let activeElements = [...document.querySelectorAll('.active')];
+    let pageElements = [...document.querySelectorAll('.' + pagename + '.page-item')];
+    let activeElements = [...document.querySelectorAll('.active.page-item')];
 
-    /*console.log('hiding the following elements');
+    console.log('hiding the following elements');
     activeElements.map(element => { 
-      
       element.classList.remove('active'); 
       element.classList.add('hidden');
-    });*/
+    });
 
     console.log('displaying the following elements: ');
     pageElements.map(element => {
-      
       element.classList.remove('hidden');
       element.classList.add('active');
     })
 
-    // update title text
-    let deleteTitleClosing = [...document.querySelector('.title-text-closing.'+pagename).children].reverse();
-    for (letter of deleteTitleClosing) {
-      console.log(letter)
-      await sleep(40);
-      letter.classList.remove('visible');
-      letter.classList.add('hidden');
-    }
-    let deleteTitle = [...document.querySelector('.title-text.'+pagename).children].reverse();
+    await deleteTitleText();
+    await typeTitleText(pagename);
+  }
+
+  function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+    
+  async function deleteTitleText() {
+    // update title text 
+    let deleteTitle = [...document.querySelectorAll('.title-text p.active')].reverse();
     for (letter of deleteTitle) {
-      console.log(letter)
-      await sleep(40);
-      letter.classList.remove('visible');
       letter.classList.add('hidden');
+      letter.classList.remove('active');
+      await sleep(40);
     }    
   }
 
+  async function typeTitleText(pagename) {
+    console.log(pagename)
+    let showTitle = [...document.querySelectorAll('.title-text p.' + pagename)];
+    for (letter of showTitle) {
+      if (pagename != window.titleText) {
+        await deleteTitleText();
+        return;
+      }
+      await sleep(40);
+      letter.classList.remove('hidden');
+      letter.classList.add('active');
+    }    
+  }
+  
   document.addEventListener('DOMContentLoaded', function() {
+    window.running = true;
     init();
-  })
+  });
+
+ 
 
 
   
