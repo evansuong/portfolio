@@ -51,7 +51,7 @@
   --colorNavBkg: #020202;
   --colorNavTxt: #FFFFFF;
   --colorNavBorder: #FFFFFF;
-  --colorTitleTxt: #000000;
+  --colorTitleTxt: #FFFFFF;
 
   /* --color1: red;
   --color2: blue;
@@ -72,7 +72,7 @@ h1 {
   transition-timing-function: ease-in-out;
 }
 
-.title-text, .title-text-closing {
+.title-text {
   display: flex;
 }
 
@@ -117,28 +117,53 @@ body {
   background-repeat: repeat;
   background-attachment: fixed;
   width: 100vw;
-  height: 100vh;
+  height: 200%;
   position: absolute;
   z-index: -9999;
+  top: 0;
+  overflow: visible;
+  background-color: #202020;
 }
 
 header {
   display: grid;
-  grid-template-columns: 1fr 4fr 1fr;
+  grid-template-columns: 2fr 1fr;
 }
 
-.container-main {
+.page-title-left {
+  grid-row: 1;
+  grid-column: 1;
+}
+
+.page-title-right {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+#container-nav {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 50px;
+  grid-column: 2;
+  height: inherit;
+  grid-row: 1;
+}
+
+#container-main {
   display: grid;
   grid-template-rows: 5% 50% 45%;
   height: 100vh;
 }
 
+
+
+
+/* children of container-main */
 #container-main-content {
   display: grid;
   grid-template-rows: 40px auto 40px;
   grid-auto-rows: minmax(min-content, max-content);
   grid-row: 2;
-
 }
 
 #container-card {
@@ -166,39 +191,38 @@ header {
   grid-row: 3;
 }
 
-#opening-text > h1 {
-  position: absolute;
-  bottom: 7.5px;
-  left: 0;
-}
-
-#closing-text > h1 {
-  position: absolute;
-  top: 0;
-  right: 0;
-}
-
 #container-main-img {
   height: 100%;
   position: relative;
   grid-row: 3;
+  display: flex;
+  justify-content: flex-start;
 }
 
 #container-main-img > img {
-  width: 100%; /* or any custom size */
-  height: 100%; 
+  margin-left: 100px;
+  height: 130%; 
   object-fit: contain;
   position: absolute;
-
+  bottom: 0;
 }
 
 
 
 
-/* nav list and items */
-.container-nav-list {
+
+
+
+/* children of container-nav */
+.nav-list {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  padding: 50px;
+  z-index: 999;
+}
+
+/* info-pages */
+#page-main {
+  position: relative;
+  height: 100vh;
 }

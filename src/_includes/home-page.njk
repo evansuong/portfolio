@@ -1,0 +1,53 @@
+<section class="info-page">
+  <div class="info-page-left">
+    <img src="assets/images/me-upside-down.png" alt="picture of myself but it's upside down with the title: 'Who and I?'" id="about-me-img"/>
+  </div>
+  <div class="info-page-right">
+    <h3 class="content-subtitle">{{ item.data.subtitle }}</h3>
+    <p class="content-about">{{ item.data.about }}</p>
+  </div>
+</section>
+<style>
+.info-page {
+  position: absolute;
+  background-color: transparent;
+  display: grid;
+  width: 100vw;
+  grid-template-columns: 1fr 1fr;
+}
+
+.info-page-left {
+  width: 100%;
+  grid-column: 1;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.info-page-right {
+  width: 100%;
+  grid-column: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  justify-content: center;
+}
+
+#about-me-img {
+  margin-left: 100px;
+  object-fit: contain;
+  position: absolute;
+}
+
+.content-subtitle {
+  color: #fff;
+}
+
+.content-about {
+  background-color: #020202;
+  color: #fff;
+  border: 2px #fff solid;
+  padding: 30px;
+  margin: 50px;
+}
+</style>

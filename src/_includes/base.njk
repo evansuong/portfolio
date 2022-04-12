@@ -4,7 +4,9 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="assets/styles/styles.css" tyle="text/css"> 
+  <link rel="stylesheet" href="assets/styles/styles.css" tyle="text/css">
+  <link rel="icon" type="image/x-icon" href="assets/images/favicon.webp">
+ 
   <title>Evan Suong</title>
   
   <link rel="stylesheet" href="https://use.typekit.net/zov4iqv.css">
@@ -23,12 +25,19 @@
   </div>
   
   <header id="page-title">
-    <nav class="container-nav-list">
-      {% for item in collections.projects %}
-        {% include 'nav-item.njk' %}
-      {% endfor %}
+    <nav class="page-title-right" id="container-nav">
+      <div class="nav-list">
+        {% for item in collections.projects %}
+          {% include 'nav-item.njk' %}
+        {% endfor %}
+      </div>
+      <div class="nav-list">
+        {% for item in collections.jobs %}
+          {% include 'nav-item.njk' %}
+        {% endfor %}
+      </div>
     </nav>
-    <div class="container-main">
+    <div class="page-title-left" id="container-main">
 
       <div id="container-main-content">
 
@@ -81,20 +90,35 @@
       </aside>
 
     </div>
-    <nav class="container-nav-list">
-      {% for item in collections.jobs %}
-        {% include 'nav-item.njk' %}
-      {% endfor %}
-    </nav>
+    
   </header>
   <main id="page-main">
-
+    {% for item in collections.jobs %}
+      {% include 'job-page.njk' %}
+    {% endfor %}
+    {% for item in collections.projects %}
+      {% include 'project-page.njk' %}
+    {% endfor %}  
+    {% for item in collections.home %}
+      {% include 'home-page.njk' %}
+    {% endfor %}
   </main>
   <footer>
 
   </footer>
 
 <script>
+
+  function hideElement(element) {
+    element.classList.remove('active'); 
+    element.classList.add('hidden');
+  }
+
+  function showElement(element) {
+    element.classList.remove('hidden');
+    element.classList.add('active');
+  }
+
   function init() {
 
     // grab url and set page
@@ -102,6 +126,20 @@
     let pagename = url.split('#')[1];
     if (!url.includes('#')) pagename = 'home';
 
+    // add scroll listeners to the nav buttons 
+    document.querySelector('body').addEventListener('scroll', function() {
+      if (window.mainContainer.scrollTop > 50) {
+        let navBtns = [...document.querySelectorAll('.nav-btn')]
+        navBtns.forEach(btn => {
+          hideElement(btn);
+        });
+      } else {
+        let navBtns = [...document.querySelectorAll('.nav-btn')]
+        navBtns.forEach(btn => {
+          showElement(btn);
+        });      
+      }
+    });  
 
     // add button event listener
     let navBtns = [...document.querySelectorAll('.nav-btn')];
@@ -118,7 +156,7 @@
       while(i--) {
         let p = document.createElement('p');
         p.classList.add(title.getAttribute('data-class'));
-        p.classList.add('hidden');
+        hideElement(p);
         p.innerText = text[i];
         title.appendChild(p);
       }
@@ -126,7 +164,7 @@
 
     navigate(pagename);
   }
-
+  
   async function navigate(pagename) {
 
     window.titleText = pagename;
@@ -137,14 +175,12 @@
 
     console.log('hiding the following elements');
     activeElements.map(element => { 
-      element.classList.remove('active'); 
-      element.classList.add('hidden');
+      hideElement(element);
     });
 
     console.log('displaying the following elements: ');
     pageElements.map(element => {
-      element.classList.remove('hidden');
-      element.classList.add('active');
+      showElement(element);
     })
 
     await deleteTitleText();
@@ -159,8 +195,7 @@
     // update title text 
     let deleteTitle = [...document.querySelectorAll('.title-text p.active')].reverse();
     for (letter of deleteTitle) {
-      letter.classList.add('hidden');
-      letter.classList.remove('active');
+      hideElement(letter);
       await sleep(40);
     }    
   }
@@ -174,8 +209,7 @@
         return;
       }
       await sleep(40);
-      letter.classList.remove('hidden');
-      letter.classList.add('active');
+      showElement(letter);
     }    
   }
   
