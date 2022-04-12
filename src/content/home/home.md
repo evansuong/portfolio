@@ -15,4 +15,4 @@ backgroundPatternSrc: "assets/images/pattern-bkg.svg"
 mainImageSrc: "assets/images/me.png"
 font: "montserrat"
 class: "home"
----   
+---
