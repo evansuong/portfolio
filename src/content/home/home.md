@@ -5,7 +5,7 @@ about: "...and I like to build things on the web that look and feel nice. I prid
 
 I've spent my short career as a web developer building applications over the web development stack, from apis, frontend clients, web servers, etc. I've gained extensive knowledge of my fields through my college studies, professional experience, and passion projects.
 
-I am a fouth year college student currently studying Computer Science at The University of California, San Diego, and I am a part time Quality Assurance Engineer for ServiceNow in San Diego. Throughout these experiences I've built a solid understanding of the digital world and I would like to help contribute to that world by helping YOU out. 
+I am a fouth year college student currently studying Computer Science at The University of California, San Diego, and I am a part time Quality Assurance Engineer for ServiceNow in San Diego. Throughout these experiences I've built a solid understanding of the digital world and I would like to help contribute to that world by helping YOU out. CHANGE MADE HERE OMG
 "
 color1: "white"
 color2: "purple"
