@@ -1,4 +1,4 @@
-<section class="page-item hidden {{ item.data.class }}">
+<section class="page-item hidden {{ item.data.class }} item-card" style="background-color: {{ item.data.colorBkg1 }}; font-family: {{ item.data.font }}; color: {{ item.data.colorTxt1 }};">
   <h2>
     {{ item.data.type | safe }}
   </h2>
@@ -9,16 +9,3 @@
     {{ item.data.shortDescription | safe }}
   </p>
 </section>
-<style>
-  section.page-item {
-    background-color: var(--colorBkg);
-    {# padding: 20px; #}
-    height: 100%;
-    width: 100%;
-  }
-
-  section.page-item > p, section.page-item > h2 {
-    color: var(--colorTxt);
-    margin: 20px;
-  }
-</style>

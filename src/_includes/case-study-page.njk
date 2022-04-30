@@ -1,0 +1,24 @@
+<div class="{{ item.data.class }} page-case-study page-item info-page hidden" style="background-image: url('{{ item.data.backgroundPatternSrc }}'); background-color: {{ item.data.colorBkg2 }}; color: {{ item.data.colorTxt2 }};  font-family: {{ item.data.font }};">
+  {# make this image diagonal #}
+  <img class="header-img {{ item.data.class }}" src="{{ item.data.headerImgSrc }}" alt="" />
+  <div class="page-content">
+    <aside class="content-sections">
+      <ol>
+        {% for section in item.data.sections %}
+          <li>{{ section.title }}</li>
+        {% endfor %}
+      </ol>
+    </aside>
+    <div class="content-text">
+      {% for section in item.data.sections %}
+        <section>
+          <h1>{{ section.title }}</h1>
+          <p>{{ section.text }}</p>
+        </section>
+        {% if section.imageSrc != "" %}
+          <img class="section-img" src="{{ section.imageSrc }}" alt=""/>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</div>

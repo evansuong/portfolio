@@ -6,24 +6,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="assets/styles/styles.css" tyle="text/css">
   <link rel="icon" type="image/x-icon" href="assets/images/favicon.webp">
- 
-  <title>Evan Suong</title>
-  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Montserrat:wght@800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://use.typekit.net/zov4iqv.css">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Montserrat:wght@800&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <title>Evan Suong</title>
 </head>
 <body>
   <div id="background">
     {% for item in collections.jobs %}
-      <div class="page-background {{ item.data.class }} hidden page-item" style="background-image: url('{{ item.data.backgroundPatternSrc }}');"></div>
+      <div class="page-background {{ item.data.class }} hidden page-item" style="background-image: url('{{ item.data.backgroundPatternSrc }}'); background-color: {{ item.data.colorBkg1 }}"></div>
     {% endfor %}
-    {% for item in collections.projects %}
-      <div class="page-background {{ item.data.class }} hidden page-item" style="background-image: url('{{ item.data.backgroundPatternSrc }}');"></div>
+    {% for item in collections.casestudies %}
+      <div class="page-background {{ item.data.class }} hidden page-item" style="background-image: url('{{ item.data.backgroundPatternSrc }}'); background-color: {{ item.data.colorBkg1 }}"></div>
     {% endfor %}
     {% for item in collections.home %}
-      <div class="page-background {{ item.data.class }} hidden page-item" style="background-image: url('{{ item.data.backgroundPatternSrc }}');"></div>
+      <div class="page-background {{ item.data.class }} hidden page-item" style="background-image: url('{{ item.data.backgroundPatternSrc }}'); background-color: {{ item.data.colorBkg1 }}"></div>
     {% endfor %}
   </div>
-  
   <header id="page-title">
     <nav class="page-title-right" id="container-nav">
       <div class="nav-list">
@@ -36,16 +37,19 @@
           {% include 'nav-item.njk' %}
         {% endfor %}
       </div>
+      <div class="nav-list">
+        {% for item in collections.casestudies %}
+          {% include 'nav-item.njk' %}
+        {% endfor %}
+      </div>
     </nav>
     <div class="page-title-left" id="container-main">
-
       <div id="container-main-content">
-
         <div id="opening-text" class="container-title-text">
           {% for item in collections.jobs %}
             {% include 'title-text.njk' %}
           {% endfor %}
-          {% for item in collections.projects %}
+          {% for item in collections.casestudies %}
             {% include 'title-text.njk' %}
           {% endfor %}
           {% for item in collections.home %}
@@ -53,7 +57,7 @@
           {% endfor %}
         </div>
         <div id="container-card">
-          {% for item in collections.projects %}
+          {% for item in collections.casestudies %}
             {% include 'item-card.njk' %}
           {% endfor %}
           {% for item in collections.jobs %}
@@ -62,42 +66,36 @@
           {% include 'home-card.njk' %}
         </div>
         <div id="closing-text" class="container-title-text">
-
           {% for item in collections.jobs %}
             {% include 'title-text-closing.njk' %}
           {% endfor %}
-          {% for item in collections.projects %}
+          {% for item in collections.casestudies %}
             {% include 'title-text-closing.njk' %}
           {% endfor %}
           {% for item in collections.home %}
             {% include 'title-text-closing.njk' %}
           {% endfor %}
-
         </div>
-
       </div>
-
       <aside id="container-main-img">
         {% for item in collections.jobs %}
           <img src="{{ item.data.mainImageSrc }}" alt="Image of {{ title }}" class="hidden {{ item.data.class }} page-item"/>
         {% endfor %}
-        {% for item in collections.projects %}
+        {% for item in collections.casestudies %}
           <img src="{{ item.data.mainImageSrc }}" alt="Image of {{ title }}" class="hidden {{ item.data.class }} page-item"/>
         {% endfor %}
         {% for item in collections.home %}
           <img src="{{ item.data.mainImageSrc }}" alt="Image of {{ title }}" class="hidden home page-item"/>
         {% endfor %}
       </aside>
-
     </div>
-    
   </header>
   <main id="page-main">
     {% for item in collections.jobs %}
       {% include 'job-page.njk' %}
     {% endfor %}
-    {% for item in collections.projects %}
-      {% include 'project-page.njk' %}
+    {% for item in collections.casestudies %}
+      {% include 'case-study-page.njk' %}
     {% endfor %}  
     {% for item in collections.home %}
       {% include 'home-page.njk' %}
@@ -119,6 +117,20 @@
     element.classList.add('active');
   }
 
+  function handleNavMouseOver(e) {
+    navigate(e.target.getAttribute('data-page'));
+  }
+
+  function handleNavMouseLeave(e) {
+    navigate('home');
+  }
+
+  function handleNavMouseClick(e) {
+    navigate(e.target.getAttribute('data-page'));
+    let infoPage = document.querySelector('.' + e.target.getAttribute('data-page')+'.info-page');
+    infoPage.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
   function init() {
 
     // grab url and set page
@@ -126,17 +138,24 @@
     let pagename = url.split('#')[1];
     if (!url.includes('#')) pagename = 'home';
 
+    // set global maincontainer 
+    window.mainContainer = document.querySelector('html');
+
     // add scroll listeners to the nav buttons 
-    document.querySelector('body').addEventListener('scroll', function() {
-      if (window.mainContainer.scrollTop > 50) {
+    window.addEventListener('scroll', function() {
+      if (window.mainContainer.scrollTop > 5) {
         let navBtns = [...document.querySelectorAll('.nav-btn')]
         navBtns.forEach(btn => {
           hideElement(btn);
+          btn.removeEventListener('mouseover', handleNavMouseOver);
+          btn.removeEventListener('mouseleave', handleNavMouseLeave);
         });
       } else {
         let navBtns = [...document.querySelectorAll('.nav-btn')]
         navBtns.forEach(btn => {
           showElement(btn);
+          btn.addEventListener('mouseover', handleNavMouseOver);
+          btn.addEventListener('mouseleave', handleNavMouseLeave);
         });      
       }
     });  
@@ -144,8 +163,9 @@
     // add button event listener
     let navBtns = [...document.querySelectorAll('.nav-btn')];
     navBtns.map(btn => {
-      btn.addEventListener('mouseover', e => navigate(e.target.getAttribute('data-page')));
-      btn.addEventListener('mouseleave', e => navigate('home'));
+      btn.addEventListener('mouseover', handleNavMouseOver);
+      btn.addEventListener('mouseleave', handleNavMouseLeave);
+      btn.addEventListener('click', handleNavMouseClick);
     })
 
     // grab title text and turn it into a bunch of p tags
@@ -161,28 +181,17 @@
         title.appendChild(p);
       }
     })
-
     navigate(pagename);
   }
   
   async function navigate(pagename) {
-
     window.titleText = pagename;
-    
-    // update main card
+    // grab all items with class page item
     let pageElements = [...document.querySelectorAll('.' + pagename + '.page-item')];
+    // grab all active elements with class page item
     let activeElements = [...document.querySelectorAll('.active.page-item')];
-
-    console.log('hiding the following elements');
-    activeElements.map(element => { 
-      hideElement(element);
-    });
-
-    console.log('displaying the following elements: ');
-    pageElements.map(element => {
-      showElement(element);
-    })
-
+    activeElements.map(element => { hideElement(element); });
+    pageElements.map(element => { showElement(element); });
     await deleteTitleText();
     await typeTitleText(pagename);
   }
@@ -217,9 +226,6 @@
     window.running = true;
     init();
   });
-
- 
-
 
   {# TODO: when the user reaches the top then display the nav items #}
 </script>

@@ -13,4 +13,10 @@ backgroundPatternSrc: "assets/images/icon-muse.png"
 mainImageSrc: "assets/images/preview-muse.png"
 font: "montserrat"
 class: "muse"
+background: 'asdfdsaf'
+userResearch: 'adsf'
+prototyping1: 'asdfasdf'
+prototyping2: 'asdfasdf'
+userTesting: 'asdfasdf'
+finalDesign: 'asdfasdf'
 ---
