@@ -216,6 +216,10 @@ header {
   z-index: 999;
 }
 
+#container-main-img > img.home {
+  height: 500px
+}
+
 section.item-card {
   background-color: var(--colorBkg);
   height: 100%;
@@ -442,5 +446,5 @@ a.nav-btn:hover {
 }
 
 #home-img {
-  height: 500px;
+  height: inherit;
 }
