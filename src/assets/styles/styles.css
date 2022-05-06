@@ -102,6 +102,7 @@ h1 {
 /* large container styles */
 body {
   margin: 0;
+  overflow-x: hidden;
 }
 
 .page-background {
@@ -201,7 +202,6 @@ header {
 
 #container-main-img {
   height: 100%;
-  position: relative;
   grid-row: 3;
   display: flex;
   justify-content: flex-start;
@@ -209,10 +209,10 @@ header {
 
 #container-main-img > img {
   margin-left: 100px;
-  height: 600px;
   object-fit: contain;
   position: absolute;
   bottom: 0;
+  max-height: 650px;
   z-index: 999;
 }
 
@@ -283,12 +283,12 @@ a.nav-btn:hover {
 .header-img {
   width: 100vw;
   grid-row: 1;
-  margin-top: -150px;
+  height: 200px;
+  object-fit: cover;
   transition-duration: .5s;
 }
 
 .header-img.muse, .header-img.fouro {
-  clip-path: polygon(0 40%, 100% 0, 100% 100%, 0 100%);
 }
 
 .info-page.hidden {
@@ -317,6 +317,7 @@ a.nav-btn:hover {
   margin-left: 100px;
   object-fit: contain;
   position: absolute;
+  height: 500px;
 }
 
 .content-subtitle {
@@ -336,20 +337,91 @@ a.nav-btn:hover {
 
 
 /* case study page */
-.page-case-study {
+.body-page {
   position: absolute;
   display: grid;
   grid-template-rows: auto auto;
 }
 
 .content-sections {
-  grid-column: 1;
+  grid-row: 1;
   padding: 40px;
 }
 
-.content-text {
-  grid-column: 2;
-  padding: 40px;
+.page-content-text {
+  grid-row: 2;
+}
+
+.page-content-text section {
+  width: 100vw;
+}
+
+
+.page-content-text section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.page-content-text div.content-right {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  width: 100vw;
+  justify-items: center;
+}
+
+.page-content-text div.content-left {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  width: 100vw;
+  justify-items: center;
+}
+
+.page-content-text img {
+
+}
+
+.page-content-text img.large {
+  height: 750px;
+} 
+
+.page-content-text img.medium {
+  height: 500px;
+}
+
+.page-content-text img.small {
+  height: 250px;
+}
+
+.page-content-text img.scroll {
+  width: 100%;
+} 
+
+
+
+
+
+.user-persona-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 100vw;
+  list-style: none;
+  margin: 0;
+  margin-block: 0;
+  margin-inline: 0;
+  padding-inline: 0;
+}
+
+.user-persona-item {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.user-persona-icon {
+  font-size: 200px;
+  margin-block: 0;
 }
 
 

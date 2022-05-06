@@ -15,30 +15,14 @@
 </head>
 <body>
   <div id="background">
-    {% for item in collections.jobs %}
-      <div class="page-background {{ item.data.class }} hidden page-item" style="background-image: url('{{ item.data.backgroundPatternSrc }}'); background-color: {{ item.data.colorBkg1 }}"></div>
-    {% endfor %}
-    {% for item in collections.casestudies %}
-      <div class="page-background {{ item.data.class }} hidden page-item" style="background-image: url('{{ item.data.backgroundPatternSrc }}'); background-color: {{ item.data.colorBkg1 }}"></div>
-    {% endfor %}
-    {% for item in collections.home %}
+    {% for item in collections.experience %}
       <div class="page-background {{ item.data.class }} hidden page-item" style="background-image: url('{{ item.data.backgroundPatternSrc }}'); background-color: {{ item.data.colorBkg1 }}"></div>
     {% endfor %}
   </div>
   <header id="page-title">
     <nav class="page-title-right" id="container-nav">
       <div class="nav-list">
-        {% for item in collections.projects %}
-          {% include 'nav-item.njk' %}
-        {% endfor %}
-      </div>
-      <div class="nav-list">
-        {% for item in collections.jobs %}
-          {% include 'nav-item.njk' %}
-        {% endfor %}
-      </div>
-      <div class="nav-list">
-        {% for item in collections.casestudies %}
+        {% for item in collections.experience %}
           {% include 'nav-item.njk' %}
         {% endfor %}
       </div>
@@ -46,59 +30,35 @@
     <div class="page-title-left" id="container-main">
       <div id="container-main-content">
         <div id="opening-text" class="container-title-text">
-          {% for item in collections.jobs %}
-            {% include 'title-text.njk' %}
-          {% endfor %}
-          {% for item in collections.casestudies %}
-            {% include 'title-text.njk' %}
-          {% endfor %}
-          {% for item in collections.home %}
+          {% for item in collections.experience %}
             {% include 'title-text.njk' %}
           {% endfor %}
         </div>
         <div id="container-card">
-          {% for item in collections.casestudies %}
-            {% include 'item-card.njk' %}
+          {% for item in collections.experience %}
+            {% if item.data.class == "home" %}
+              {% include 'home-card.njk' %}
+            {% else %}
+              {% include 'item-card.njk' %}
+            {% endif %}
           {% endfor %}
-          {% for item in collections.jobs %}
-            {% include 'item-card.njk' %}
-          {% endfor %}
-          {% include 'home-card.njk' %}
         </div>
         <div id="closing-text" class="container-title-text">
-          {% for item in collections.jobs %}
-            {% include 'title-text-closing.njk' %}
-          {% endfor %}
-          {% for item in collections.casestudies %}
-            {% include 'title-text-closing.njk' %}
-          {% endfor %}
-          {% for item in collections.home %}
+          {% for item in collections.experience %}
             {% include 'title-text-closing.njk' %}
           {% endfor %}
         </div>
       </div>
       <aside id="container-main-img">
-        {% for item in collections.jobs %}
+        {% for item in collections.experience %}
           <img src="{{ item.data.mainImageSrc }}" alt="Image of {{ title }}" class="hidden {{ item.data.class }} page-item"/>
-        {% endfor %}
-        {% for item in collections.casestudies %}
-          <img src="{{ item.data.mainImageSrc }}" alt="Image of {{ title }}" class="hidden {{ item.data.class }} page-item"/>
-        {% endfor %}
-        {% for item in collections.home %}
-          <img src="{{ item.data.mainImageSrc }}" alt="Image of {{ title }}" class="hidden home page-item"/>
         {% endfor %}
       </aside>
     </div>
   </header>
   <main id="page-main">
-    {% for item in collections.jobs %}
-      {% include 'job-page.njk' %}
-    {% endfor %}
-    {% for item in collections.casestudies %}
-      {% include 'case-study-page.njk' %}
-    {% endfor %}  
-    {% for item in collections.home %}
-      {% include 'home-page.njk' %}
+    {% for item in collections.experience %}
+      {% include 'body-page.njk' %}
     {% endfor %}
   </main>
   <footer>

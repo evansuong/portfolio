@@ -1,0 +1,23 @@
+<div class="{{ item.data.class }} body-page page-item info-page hidden" style="background-image: url('{{ item.data.backgroundPatternSrc }}'); background-color: {{ item.data.colorBkg2 }}; color: {{ item.data.colorTxt2 }};  font-family: {{ item.data.font }};">
+  {# make this image diagonal #}
+  {% if item.data.class != "home" %}
+    <img class="header-img {{ item.data.class }}" src="{{ item.data.headerImgSrc }}" alt="" /> 
+  {% endif %}
+  <div class="page-content">
+    {% if item.data.class != "home" %}
+      <aside class="content-sections">
+        <ol>
+          {% for section in item.data.sections %}
+            <li>{{ section.title }}</li>
+          {% endfor %}
+        </ol>
+      </aside>
+      <div class="page-content-text">
+        {% include "pages/" + item.data.class + "-page.njk" %}
+      </div>
+    {% else %}
+      {% include "pages/" + item.data.class + "-page.njk" %}
+    {% endif %} 
+    
+  </div>
+</div>
