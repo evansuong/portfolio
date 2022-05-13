@@ -54,9 +54,9 @@
   --colorTitleTxt: #FFFFFF;
 }
 
-h1 {
-  margin-block: 0;
-  margin: 0;
+h3, h1 {
+  margin-block: 10px;
+  margin: 10px;
 }
 
 .page-item {
@@ -280,7 +280,6 @@ a.nav-btn:hover {
 
 .info-page .page-content {
   display: grid;
-  grid-template-columns: 1fr 3fr;
   grid-row: 2;
 }
 
@@ -343,6 +342,7 @@ a.nav-btn:hover {
 /* case study page */
 .body-page {
   position: absolute;
+  width: 100%;
   display: grid;
   grid-template-rows: auto auto;
 }
@@ -357,32 +357,50 @@ a.nav-btn:hover {
 }
 
 .page-content-text section {
-  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 50px 20px 50px;
 }
 
+.page-content div {
+  padding: 10px 40px 10px 40px;
+}
 
-.page-content-text section {
+.page-content-text div.content-right {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  justify-items: center;
+}
+
+.page-content-text div.content-center {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.page-content-text div.content-right {
-  display: grid;
-  grid-template-columns: 2fr 3fr;
-  width: 100vw;
-  justify-items: center;
-}
-
 .page-content-text div.content-left {
   display: grid;
-  grid-template-columns: 3fr 2fr;
-  width: 100vw;
+  grid-template-columns: 2fr 3fr;
   justify-items: center;
 }
 
-.page-content-text img {
+.page-context-text section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
+.page-content-text p {
+  font-size: 20px;
+  font-family: sans-serif;
+  max-width: 60vw;
+}
+
+
+.page-content-text h3 {
+  font-size: 40px;
+  text-align: center;
 }
 
 .page-content-text img.large {
@@ -398,17 +416,59 @@ a.nav-btn:hover {
 }
 
 .page-content-text img.scroll {
-  width: 100%;
+  width: 500px;
 } 
 
+.page-content-text .item-left {
+  grid-column: 1;
+}
+
+.page-content-text .item-right {
+  grid-column: 2;
+}
+
+.page-content-text ol {
+  font-size: medium;
+  width: 50vw;
+  list-style: none;
+}
+
+.page-content-text ol > li {
+  margin-bottom: 50px;
+}
+
+.page-content-text ol > p {
+  font-weight: bold;
+}
+
+li.chosen {
+  background-color: lightgreen;
+  border-radius: 100px;
+  font-weight: bold;
+}
+
+p.text-center {
+  text-align: center;
+}
 
 
+figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: medium;
+}
 
+figure img {
+  height: 100px;
+  padding: 20px;
+}
 
-.user-persona-list {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  width: 100vw;
+.icon-list {
+  display: flex;
+  /* grid-template-columns: repeat(3, 1fr); */
+  justify-content: space-evenly;
+  align-items: baseline;
   list-style: none;
   margin: 0;
   margin-block: 0;
@@ -423,8 +483,8 @@ a.nav-btn:hover {
   align-items: center;
 }
 
-.user-persona-icon {
-  font-size: 200px;
+p.user-persona-icon {
+  font-size:150px;
   margin-block: 0;
 }
 
