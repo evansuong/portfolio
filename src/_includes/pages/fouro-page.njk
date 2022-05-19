@@ -1,42 +1,114 @@
-<section class="center">
-  <h3>Introduction</h3>
-  <p>HUG PEOPLE</p>
-  <img src="/assets/images/fouro/fouro-intro.png" class="large"/>
+<section class="content-center">
+  <h3>"Four Hugs A Day"</h3>
+  <p>Family therapist Virginia Satir once said, <b>“We need four hugs a day for survival. We need 8 hugs a day for maintenance. We need 12 hugs a day for growth.”</b> Satir explains that in order to get by in life, humans require multiple genuine interactions with one another every day. Such a world would be nice. However, with the rise of social media as many individuals’ primary form of communication, the reality is that we have sacrificed the number of interactions we have with others with the quality of each interaction.</p>
+  <p>To combat this a couple acquaintances and I decided to build a social media application that encourages more meaningful and genuine interactions between one another. We came up with this idea during the peak of the covid pandemic, where pretty much all face to face interactions were replaced with digital ones. This made it all the more relevant to figure out a way to preserve the fulfilling feeling of having an in person conversation with someone through social media.</p>
+  <img src="/assets/images/fouro/fouro-social-media.jpg" class="medium"/>
 </section>
-<section class="center">
-  <h3>
-    User Research
-  </h3>
-  <p>We researched users</p>
-  <ul class="user-persona-list">
+<hr>
+<section class="content-left">
+  <div class="content-left">
+    <h3 class="item-left">
+      There is a tradeoff...
+    </h3>
+    <div class="item-right">
+      <p>...between the convenience of one-step interactions (like the pressing of a like button or sending a short message), and the authenticity and depth of the interaction. Authentic and genuine interactions take time and effort, which is not always something that people are in the mood for.</p>
+      <p>The question for us was how to create a social platform that helps users put more thought and emotion into the messages they send others <b>without</b> making it inconvenient for them to send a message, or make the user feel forced into participating. </p>
+      <p>We aimed to tackle this by implementing a messaging platform where users send each other what we coined as <b>“Digital Hugs”</b>, keeping in line with the four hugs a day quote mentioned earlier. We set out to find out how we could enforce meaningful interactions by sending hugs to one another. </p>
+    </div>
+  </div>
+</section>
+<hr>
+<section class="content-center">
+  <h3>We Researched Users In Order To Find...</h3>
+  <ol class="icon-list">
+     <li>
+      <figure>
+        <img src="/assets/images/fouro/fouro-icon-streak.svg" alt="icon of a blueprint to symbolize redesigning our app"/>
+        <figcaption><b>Which existing social media features help encourage users to send messages to their friends?</b></figcaption>
+      </figure>
+    </li>
+     <li>
+      <figure>
+        <img src="/assets/images/fouro/fouro-icon-authenticity.svg" alt="icon of a lego like brick to symbolize building a prototype"/>
+        <figcaption><b>Which existing social media services promotes authenticity in interactions the best?</b></figcaption>
+      </figure>
+    </li>
+     <li>
+      <figure>
+        <img src="/assets/images/fouro/fouro-icon-effort.svg" alt="icon of a compelte checkmark to symbolize a finished product"/>
+        <figcaption><b>Would users put more effort into their digital interaction if provided the opportunity?</b></figcaption>
+      </figure>
+    </li>
+  </ol>
+  <p>We ran a combination of an <b>online survey</b> with a sequence of individual <b>interviews</b> to get an understanding of how we should achieve our goals and maximize the tradeoff between effieicny and authenticity.</p>
+</section>
+<hr>
+<section class="content-center">
+  <h3>Our User Reseach Showed Us...</h3>
+  <p>...that people are indeed willing to put in the extra effort to better communicate digitally with their friends. Snapchat was by far the most mentioned service for both message encouragement and authenticity. With this info our team began drawing inspiration from existing social media platforms and went about creating these user stories:</p>
+  <ul class="user-persona-list icon-list">
     <li class="user-persona-item">
-      <p class="user-persona-icon">👧🏼</p>
-      <p>Sage</p>
-      <p>Wants to see how similar her music habits are to her friends</p>
+      <p class="user-persona-icon">👨🏿‍🦲</p>
+      <p>Julian</p>
+      <p>A college student who lives at home, and although he enjoys spending time with family, he is struggling to maintain relationships with friends while away from campus.</p>
+    </li>
+     <li class="user-persona-item">
+      <p class="user-persona-icon">🧑🏾</p>
+      <p>Joseph</p>
+      <p>Currently in a long distance relationship, and is having a hard time keeping conversations interesting and deeper than surface level. If he has to ask "how was your day" as a conversation starter he might just break his phone.</p>
     </li>
     <li class="user-persona-item">
-      <p class="user-persona-icon">🧑🏿</p>
-      <p>Marcus</p>
-      <p>Looking to grow community of people who listen to the same music as him</p>
-    </li>
-    <li class="user-persona-item">
-      <p class="user-persona-icon">👩🏼</p>
-      <p>Paige</p>
-      <p>Looking to find new music and expand her genre listening</p>
+      <p class="user-persona-icon">👧🏻</p>
+      <p>Makise</p>
+      <p>A high school student who frequently uses apps like Instagram and Snapchat to keep in touch with friends outside of school. However she's beginning to dread the stale conversations while on these apps and wants something more genuine.</p>
     </li>
   </ul>
 </section>
-<section class="center">
-  <h3>Design</h3>
-  <h4>Frontend</h4>
-  <p>used react native and created a spreadsheet of frontend components</p>
+<hr>
+<section class="content-center">
+  <div class="content-right">
+    <h3 class="item-left">Our Main Features</h3>
+    <div class="item-left">
+      <h4>Digital Hugs</h4>
+      <p>Our primary feature. In order to chat with another user, a hug must be sent. A hug is like any regular text message, however all initial hugs are sent in response to a randomly selected prompt. Furthermore, hugs have a 20 word minimum, ensuring that messages sent have enough content to spark a decent conversation. Once a hug is sent, the receiving user can opt to either accept or reject the hug. When the user accepts a hug they are required to send a message back (without the prompt or word minimum requirement of the initial hug message). When a hug is accepted and sent back, users are then able to freely message each other like in any other messaging platform. If a hug is rejected, the receiver does not send a hug back, although the sender is not notified of the rejection.</p>
+    </div>
+    <img class="item-right medium" src="/assets/images/fouro/fouro-icon-hug.png"/>
+  </div>
+  <div class="content-right">
+    <div class="item-left">
+      <h4>Keep In Touch Friends List</h4>
+      <p>In order to encourage users to reach out to different people and maintain a healthy and diverse social circle, the friends list is not ordered by most recent interactions, rather the opposite. Friends you have not reached out to for a while will be displayed at the top of the friends list, and friends you have just messaged will be at the bottom of your friends list. This provides users the opportunity to easily access and contact friends that they have not spoken to in a while.</p>
+    </div>
+    <img class="item-right medium" src="/assets/images/fouro/fouro-icon-friends.png"/>
+  </div>
+  <div class="content-right">
+    <div class="item-left">
+      <h4>Four Hugs A Day Streak</h4>
+      <p>Through our user research we found that users are most motivated to send messages to each other when they have some sort of incentive/track record to protect. Much like snapchat streaks, we implemented our own streak feature that keeps track of how many hugs a user has sent in a single day, as well as the number of days the user has sent and received 4 or more hugs (again keeping in line with the 4 hugs a day idea).</p>
+    </div>
+    <img class="item-right medium" src="/assets/images/fouro/fouro-icon-streaks.png"/>
+  </div>
+</section>
+<hr>
+<section class="content-center">
+  <h3>To Start Out Our Technical Design...</h3>
+  <p>...we got to work on building out the technical parts of our application including our tech stack, backend structure, api structure, frontend pages and frontend components. Being the first time I’ve ever worked on a full frontend to backend application, this was a very helpful experience that allowed me to understand the end-to-end data lifecycle between the front and backend of our application.</p>
+  <h4>For our frontend...</h4>
+  <p>... we used react native and created a spreadsheet of frontend components and assigned each component to various group members.</p>
   <img src="/assets/images/fouro/fouro-frontend-components.png" class="small"/>
-  <h4>Backend</h4>
-  <p>used nosql and designed a schema and set up endpoints</p>
+  <h4>For our backend...</h4>
+  <p>...we used a nosql database hosted by firebase, and designed a schema that detailed our db structure. We also created a spreadsheet listing out all of our server endpoints so we could start modeling our frontend requests.</p>
   <img src="/assets/images/fouro/fouro-backend-diagram.png" class="small"/>
 </section>
-<section class="center">
-  <h3>Prototyping & Feature Breakdown</h3>
+<hr>
+<section class="content-center">
+  <h3>Our Prototyping Process...</h3>
+  <p>Involved creating multiple designs on Figma and reviewing them as a group. Our main focus here was to ensure every main feature was only 1-2 user actions away at any given point. We wanted every interactive component to stand out as something that could be interacted with, without having our components deviate from the overall style of our app too much.</p>
+  <img src="/assets/images/fouro/fouro-prototyping.png" class="large"/> 
+</section>
+<hr>
+<section class="content-center">
+  <h3>Final Design:</h3>
   <h4>Onboarding & Login</h4>
   <img src="/assets/images/fouro/fouro-wireframe-onboarding.png" class="small"/>
   <br/>
@@ -55,4 +127,10 @@
   <br/>
   <h4>Notifications</h4>
   <img src="/assets/images/fouro/fouro-wireframe-notifications.png" class="large"/>
+</section>
+<hr>
+<section class="content-center">
+  <h3>In Retrospect...</h3>
+  <p>...this was an extremely eye opening process for me. Like I mentioned before this was the first full-stack application project I had ever worked on. I learned the value that comes from creating a design blueprint beforehand. Without our preplanning and organization of our features, we would not have even come close to a finished product.</p>
+  <p><b>From a purely design aspect,</b> I realized that design is not only limited to graphics and UIs, rather it encompasses everything under the umbrella of user experience. We had a goal to create a user experience where users could have meaningfull conversations with their friends without having to put too much effort into curating an authentic message. While this experience is not visual, we still had to design features that would allow the users to experience the feeling we wanted them to. Designing our hugs, keep in touch, and streaks features was more like solving a puzzle to trick the human brain, as opposed to creating a UI with graphics that looked cool. This project fully changed my understanding of what it means to be a designer.</p>
 </section>

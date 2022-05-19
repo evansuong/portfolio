@@ -370,7 +370,7 @@ a.nav-btn:hover {
 .page-content-text div.content-right {
   display: grid;
   grid-template-columns: 3fr 2fr;
-  justify-items: center;
+  justify-items: left;
 }
 
 .page-content-text div.content-center {
@@ -425,6 +425,7 @@ a.nav-btn:hover {
 
 .page-content-text .item-right {
   grid-column: 2;
+  align-self: start;
 }
 
 .page-content-text ol {
