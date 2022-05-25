@@ -438,7 +438,7 @@ a.nav-btn:hover {
 
 .page-content-text .item-right {
   grid-column: 2;
-  align-self: start;
+  justify-self: start;
   display: flex;
   flex-direction: column;
   justify-content: center;

@@ -3,7 +3,7 @@ title: Fouro
 shortDescription: Fouro was cool
 year: "2021"
 skills: ["some", "more"]
-color1: "green"
+color1: "white"
 color2: "white"
 color3: "black"
 colorBkg1: "#202020"
