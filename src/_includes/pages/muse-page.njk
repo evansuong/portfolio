@@ -1,8 +1,5 @@
 <section>
-  <div class="content-right">
-    <div class="content-center">
-      <img src="/assets/images/muse/muse-intro.png" class="scroll item-left"/>
-    </div>
+  <div>
     <div class="content-center item-right">
       <h3>Do you recall the Bill Clinton album cover trend that took over Instagram for a couple weeks?</h3>
       <img src="/assets/images/muse/muse-bill-clinton-1.png" alt="picture of the bill clinton instagram story challenge template" class="medium"/>
@@ -12,11 +9,19 @@
     </div>
   </div>
 </section>
-<section>
-  <h3>There are a wide varierty of social platforms...</h3>
-  <p><b>...that utilize different mediums of relationship building. However, there isn't a dedicated platform that builds on this idea of letting the music you listen to curate your online profile.</b></p>
-  <p>Based on this conclusion, a couple friends and I set out to create a social platform where you can connect with others and explore new music based on your favorite music.</p>
+<hr>
+<section class="content-right">
+  <div class="content-center">
+    <h3>There are a wide varierty of social platforms...</h3>
+    <p><b>...that utilize different mediums of relationship building. However, there isn't a dedicated platform that builds on this idea of letting the music you listen to curate your online profile.</b></p>
+    <p>Based on this conclusion, a couple friends and I set out to create a social platform where you can connect with others and explore new music based on your favorite music.</p>
+  </div>
+  <div class="content-center">
+    <img src="/assets/images/muse/muse-intro.png" class="scroll item-left"/>
+  </div>
+  <p class="todo">// TODO: Design an app that allows users to compare their music tastes with others, allowing them to meet new people and listen to new music<p>
 </section>
+<hr>
 <section>
   <h3>Going Into This Project...</h3>
   <p>...I had no formal experience in graphic design. I was initially tasked with frontend dev, but I was really eager to open myself up to the world of design. Thanks to the help of some fellow team members who did have some basic design experience, we curated a roadmap that we could follow to get to a final design.</p>
@@ -45,14 +50,21 @@
         <figcaption><b>Final Design</b></figcaption>
       </figure>
     </li>
-
   </ol>
   <p>The group had a POC version of the application already, but had made plans to scrap the old design and rebuild the application and brand design from the ground up, preserving the features and functionality that had been working from the previous version of the app.</p>
   <figure>
     <figcaption><b>Our Old Web App Design:</b></figcaption>
     <img src="/assets/images/muse/muse-old.png" class="large"/>
   </figure>
+  <p class="todo">
+    // TODO: <ul>
+      <li><p class="todo">update ^^^ this design to work on a mobile platform</p></li>
+      <li><p class="todo">create a new design system including a new color pallette, fonts, and component sizes</p></li>
+      <li><p class="todo">narrow down potential features into an MVP (minimum viable product)</p></li>
+    </ul>
+  </p>
 </section>
+<hr>
 <section>
   <h3>Our User Research Process...</h3>
   <p>...largely revolved around this redesign process. We aimed to use our research findings to determine the following:</p>
@@ -145,7 +157,6 @@
           </li>
         </ul>
       </li>
-
     </ol>
   </div>
   <p><b>This research process was particularly eye opening, as I had never performed this kind of deterministic user research before. With my previous design passion projects I simply made design choices based on what I thought was cool or useful.</b></p>
@@ -167,7 +178,11 @@
       <p>Looking to find new music and expand her genre listening</p>
     </li>
   </ul>
+  <p class="todo">
+    // TODO: use our user research to move forward with our system design todos
+  </p>
 </section>
+<hr>
 <section>
   <h3>Brand Design</h3>
   <p>We worked first on a color palette, followed by some landing page concepts</p>
@@ -193,23 +208,76 @@
       </figure>
     </li>
   </ul>
+  <p class="todo">
+    // TODO: utilize our new system design components to start prototyping
+  </p>
 </section>
+<hr>
 <section>
   <h3>We Proceeded With Our Prototyping By...</h3>
   <div class="content-right">
-    <p>...starting with this design. We ran through a few iterations of our mobile app designs, getting user feedback after each redesign. This process was specifically helpful to me as I was able to learn a ton about figma's features from my fellow designers.</p>
-    <img src="/assets/images/muse/muse-profile-old.png" class="medium"/>
+    <div class="content-center">
+      <p class="skinny">...starting with this design. We ran through a few iterations of our mobile app designs, getting user feedback after each redesign.</p>
+      <p class="skinny">We didn't like using the colored background to distinguish different UI sections, as it seemed to guide user attention to the sections with colored background, while also causing a noticeable break in each page. We also found that we could rearrange the layout in a more efficient and clean way...</p>
+    </div>
+    <img src="/assets/images/muse/muse-prototype-old.png" class="medium"/>
   </div>
   <div class="content-left">
-    <img src="/assets/images/muse/muse-profile-revised.png" class="medium"/>
-    <p>We ended up with this design, which we feel provided an interface that was easy to use, understand, and looked good. The navbar at the bottom was a nice touch, since we were able to have a new take on an existing popular design</p>
+    <img src="/assets/images/muse/muse-prototype-new.png" class="medium"/>
+    <div class="content-center">
+      <p class="skinny">...so for our final iteration we implemented shaded section backgrounds, along with some clever layout sizing.</p>
+      <p class="skinny">We ended up with this design, which we feel provided an interface that was easy to use, understand, and looked good. The navbar at the bottom was a nice touch, since we were able to have a new take on an existing popular design</p>
+    </div>
   </div>
 </section>
+<hr>
 <section>
   <h3>Our Final Design...</h3>
-  <img src="assets/images/muse/muse-new.png" class="large"/>
+  <div class="content-left">
+    <img class="item-left large" src="assets/images/muse/muse-page-harmonize.png"/>
+    <div class="item-right">
+      <h4>Harmonize Page</h4>
+      <p>This is the central feature to our design. The Harmonize feature allows users to compare their music listening habits with another user of their choice. To do this we pulled listening history data from both user's Spotify accounts and perform some machine learning magic to calculate how similar these listning habits are</p>
+      <p>The UI design for this feature was pretty simple. We wanted the compatibility score to be the center of the user's attention on this page. We also wanted to give the user a follow up action to the harmonize process, allowing them to view the compared user's profile without having to perform any extra navigation.</p>
+    </div>
+  </div>
+  <div class="content-left">
+    <img class="item-left large" src="assets/images/muse/muse-page-explore.png"/>
+    <div class="item-right">
+      <h4>Explore Page</h4>
+      <p>The explore page was designed to support our other two features: Music Exploration and User Exploration. Although these weren't part of the MVP, our group wanted a full application design in order to have a full design set up for those interested in getting involved with our project.</p>
+      <p>Like the earlier prototypes, we gave the sections individual shaded backgrounds so users could better distinguish different sections of content from one another.</p>
+    </div>
+  </div>
+  <div class="content-left">
+    <img class="item-left large" src="assets/images/muse/muse-page-profile.png"/>
+    <div class="item-right">
+      <h4>Profile Page</h4>
+      <p>For our users' profiles, we emphasized on identifying data. Just like someone's Tinder profile is their individual outward identity to the Tinder community, our users' Muse profiles should have the same effect.</p>
+      <p>Users should be able to get a good idea of the type of music listener you are just by reading your profile. That was the goal here.</p>
+    </div>
+  </div>
+  <div class="content-left">
+    <img class="item-left medium" src="assets/images/muse/muse-page-feed.png"/>
+    <div class="item-right">
+      <h4>General Feed</h4>
+      <p>This feature was also not part of our MVP, but had a design completed for it.</p>
+      <p>Like the explore page, this feature was intended to help users meet new people and explore new music, but by directly showing users what kind of music their friends were listening to. We wanted each feed item to stand out, like every music discovery a friend made was significant. We intended for this to promote users to look into their friends actions to help them find new music and meet new people. (You can see a repeating theme here)</p>
+    </div>
+  </div>
 </section>
+<hr>
+<section>
+  <h3>BUT... DESPITE OUR BEST EFFORTS, MUSE NEVER CAME TO BE. LET'S TALK ABOUT WHY</h3>
+</section>
+<hr>
 <section>
   <h3>In Retrospect...</h3>
-  <p>...there are a ton of things I would do differently, which is undestandable given that this was my first semi-formal design project. To begin with I would have put more focus on user research and user testing. Far too many of our team's decisions were based on our own opinions that led us to dead-ends and impossible tasks. We failed in many areas to introduce contraints with both our designs and applciation features, which was the main contributor to us not being able to finish and publish our application.</p>
+  <p>...there are a ton of things I would do differently, which is undestandable given that this was my first semi-formal design project. Far too many of our team's decisions were based on our own opinions that led us to dead-ends and impossible tasks. We failed in many areas to introduce contraints with both our designs and applciation features, which was the main contributor to us not being able to finish and publish our application.</p>
+  <h4>User Research and User Testing</h4>
+  <p>The issue was not the quantity of our user testing, but the quality of it. After our user research and user testing, we didn't have a super clear direction in front of us. To put it another way, our user research and testing were not very forward thinking, and felt more like we were just going through the motions here.</p>
+  <p>Instead, I would've put more effort into figuring out the questions we wanted answered by our rounds of user research, and designing our research and testing methods to allow users to answer those questions for us.</p>
+  <h4>Prototyping</h4>
+  <p>This was an error in timing and prioritizing. I think our team got caught up in wanting to make cool looking designs without putting much thought into our backend data model. Members of the team responsible for our backend design got caught up in schoolwork, causing the design team to develop our frontend design before we had any real idea of what our data would be formatted like. This synchonization error, coupled with the deep desire to just create cool looking designs brought about many issues when it came to actually developing the application in code.</p>
+  <p>If I was to do things differently, I would have had our team jointly design the front and backend models before moving forward with any real designs. We would have a data-up model, where we design our frontend components based on the backend database schema. This would allow us our frontend to communicate with our backend much more seamlessly and without any formatting conflicts. Perhaps if our application had a much simple data model, we would have been able to take the same UI down model of design.</p>
 </section>

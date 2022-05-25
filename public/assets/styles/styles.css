@@ -140,7 +140,7 @@ header {
 #container-nav {
   display: flex;
   justify-content: space-evenly;
-  padding: 50px;
+  /* padding: 50px; */
   grid-column: 2;
   height: inherit;
   grid-row: 1;
@@ -274,7 +274,7 @@ a.nav-btn:hover {
   background-attachment: fixed;
   position: absolute;
   display: grid;
-  width: 100vw;
+  /* width: 100vw; */
   grid-template-columns: 1fr 1fr;
 }
 
@@ -286,7 +286,7 @@ a.nav-btn:hover {
 .header-img {
   width: 100vw;
   grid-row: 1;
-  height: 200px;
+  height: auto;
   object-fit: cover;
   transition-duration: .5s;
 }
@@ -349,7 +349,7 @@ a.nav-btn:hover {
 
 .content-sections {
   grid-row: 1;
-  padding: 40px;
+  padding: 0 40px 0 40px;
 }
 
 .page-content-text {
@@ -360,17 +360,19 @@ a.nav-btn:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px 50px 20px 50px;
+  /* padding: 20px 50px 20px 50px; */
 }
 
-.page-content div {
-  padding: 10px 40px 10px 40px;
-}
+/* .page-content div {
+   padding: 10px 40px 10px 40px; 
+} */
 
 .page-content-text div.content-right {
   display: grid;
   grid-template-columns: 3fr 2fr;
-  justify-items: left;
+  justify-items: center;
+  align-items: center;
+  margin-top: 20px;
 }
 
 .page-content-text div.content-center {
@@ -383,6 +385,7 @@ a.nav-btn:hover {
   display: grid;
   grid-template-columns: 2fr 3fr;
   justify-items: center;
+  align-items: center;
 }
 
 .page-context-text section {
@@ -397,10 +400,15 @@ a.nav-btn:hover {
   max-width: 60vw;
 }
 
-
 .page-content-text h3 {
   font-size: 40px;
   text-align: center;
+  padding: 30px 0 20px 0;
+}
+.page-content-text h4 {
+  font-size: 30px;
+  text-align: center;
+  padding: 30px 0 20px 0;
 }
 
 .page-content-text img.large {
@@ -421,11 +429,21 @@ a.nav-btn:hover {
 
 .page-content-text .item-left {
   grid-column: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-left: 50px;
 }
 
 .page-content-text .item-right {
   grid-column: 2;
   align-self: start;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-right: 50px;
 }
 
 .page-content-text ol {
@@ -442,6 +460,11 @@ a.nav-btn:hover {
   font-weight: bold;
 }
 
+.todo {
+  font-weight: bold;
+  color: purple;
+}
+
 li.chosen {
   background-color: lightgreen;
   border-radius: 100px;
@@ -450,6 +473,10 @@ li.chosen {
 
 p.text-center {
   text-align: center;
+}
+
+p.skinny {
+  width: 300px;
 }
 
 
@@ -465,6 +492,7 @@ figure img {
   padding: 20px;
 }
 
+
 .icon-list {
   display: flex;
   /* grid-template-columns: repeat(3, 1fr); */
@@ -475,6 +503,10 @@ figure img {
   margin-block: 0;
   margin-inline: 0;
   padding-inline: 0;
+}
+
+figcaption {
+  text-align: center;
 }
 
 .user-persona-item {

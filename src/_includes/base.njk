@@ -94,9 +94,9 @@
   function init() {
 
     // grab url and set page
-    let url = window.location.href;
-    let pagename = url.split('#')[1];
-    if (!url.includes('#')) pagename = 'home';
+    let hash = window.location.hash;
+    let pagename = hash.split('#')[1];
+    if (hash == '') pagename = 'home';
 
     // set global maincontainer 
     window.mainContainer = document.querySelector('html');
@@ -140,7 +140,8 @@
         p.innerText = text[i];
         title.appendChild(p);
       }
-    })
+    });
+
     navigate(pagename);
   }
   
